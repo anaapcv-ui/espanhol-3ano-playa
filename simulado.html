@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado · ¡Vamos a la playa! · Espanhol 3º ano · Cap. 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--sea:#0277bd;--sky:#4fc3f7;--turq:#26c6da;--sand:#f6b23e;--coral:#ff7a59;--sun:#ffd23f;--green:#2f9e44;--green2:#69db7c;--red:#f03e3e;--ink:#0a3d5c;--foam:#e3f6fd}
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#bbeaff,#e3f6fd 55%,#fff6e0);font-family:'Nunito',system-ui,sans-serif;color:var(--ink);line-height:1.6;padding-bottom:92px}
+  h1,h2,h3,.baloo{font-family:'Baloo 2','Nunito',sans-serif}
+  header{background:linear-gradient(120deg,#0277bd,#f6b23e);color:#fff;padding:18px 16px;border-bottom:6px solid var(--sun);box-shadow:0 6px 0 #015b8f}
+  .wrap{max-width:820px;margin:0 auto;padding:0 16px}
+  .titlerow{display:flex;align-items:center;gap:14px}.mascot{font-size:2.8rem}
+  h1{margin:0;font-size:1.4rem;text-shadow:0 2px 0 rgba(0,0,0,.18)}.sub{font-size:.92rem;opacity:.96}
+  .hud{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+  .bar{flex:1;min-width:140px;height:16px;background:#cdeffb;border:3px solid #015b8f;border-radius:20px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sun),var(--green2));transition:.4s}
+  .pill{background:#fff;border-radius:20px;padding:4px 12px;font-weight:800;border:3px solid var(--sun);color:var(--sea);white-space:nowrap}
+  .intro{background:#fff;border:3px dashed var(--turq);border-radius:18px;padding:14px 18px;margin:18px 0}
+  .card{background:#fff;border-radius:20px;border:4px solid #cdeffb;box-shadow:0 6px 0 rgba(2,119,189,.12);padding:20px;margin:20px 0;display:none}
+  .card.active{display:block;animation:pop .3s}
+  @keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+  .qnum{color:var(--coral);font-weight:800;font-family:'Baloo 2'}
+  .qt{font-size:1.16rem;font-weight:800;margin:6px 0 14px}
+  .opts button{display:block;width:100%;text-align:left;margin:8px 0;background:#fff;border:3px solid #cdeffb;border-radius:12px;padding:12px 14px;font-family:'Nunito';font-weight:700;font-size:1rem;cursor:pointer;transition:.1s}
+  .opts button:hover{border-color:var(--turq)}
+  .opts button.sel{background:#fff3bf;border-color:var(--sand)}
+  .opts button .let{display:inline-block;width:26px;height:26px;line-height:26px;text-align:center;background:var(--turq);color:#fff;border-radius:50%;font-family:'Baloo 2';margin-right:8px}
+  .opts button.sel .let{background:var(--coral)}
+  .navb{display:flex;justify-content:space-between;margin-top:16px;gap:10px}
+  .btn{background:var(--sea);color:#fff;border:none;border-radius:12px;padding:11px 20px;font-family:'Baloo 2';box-shadow:0 3px 0 #015b8f;cursor:pointer;font-size:1rem}
+  .btn.grey{background:#adb5bd;box-shadow:0 3px 0 #868e96}
+  .btn.go{background:var(--green);box-shadow:0 3px 0 #1f6e2f}
+  .result{display:none;text-align:center;background:linear-gradient(120deg,#fff3bf,#ffd23f);border:4px solid var(--sand);border-radius:22px;padding:26px;margin:20px 0}
+  .result.show{display:block;animation:pop .4s}.result .big{font-size:3.6rem}
+  .result h2{color:var(--sea);margin:6px 0}.result .score{font-size:2.4rem;font-weight:800;color:var(--coral)}
+  .stars{font-size:1.8rem;letter-spacing:3px}
+  .savebar{position:fixed;bottom:0;left:0;right:0;background:#e3f6fdee;border-top:3px solid var(--sea);padding:8px 14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;backdrop-filter:blur(4px)}
+  a.nav,button.nav{background:var(--sea);color:#fff;border:none;border-radius:12px;padding:9px 16px;font-family:'Baloo 2';text-decoration:none;box-shadow:0 3px 0 #015b8f;cursor:pointer;font-size:1rem}
+  .modal{position:fixed;inset:0;background:rgba(10,61,92,.55);display:none;place-items:center;z-index:50;padding:16px}
+  .modal.show{display:grid}
+  .modal .box{background:#fff;border-radius:20px;border:4px solid var(--sea);padding:22px;max-width:360px;text-align:center}
+  .modal .box h3{color:var(--sea);margin:0 0 8px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="titlerow"><div class="mascot">📝</div><div>
+    <h1>Simulado — ¡Vamos a la playa!</h1>
+    <div class="sub">Espanhol · 3º ano · Cap. 5 · 25 questões · o gabarito abre no fim 🔊</div>
+  </div></div>
+  <div class="hud">
+    <div class="bar"><i id="pbar"></i></div>
+    <div class="pill">✍️ <span id="ansc">0</span>/25</div>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div class="intro">🐢 Este é o <b>simulado da prova</b>! Leia com calma e escolha a resposta. Você pode <b>voltar e trocar</b> antes de terminar. No fim, você vê sua nota e abre o <b>gabarito comentado</b> (com áudio 🔊). ¡Buena suerte! 🌊</div>
+</div>
+
+<div class="wrap" id="simbox"></div>
+
+<div class="wrap"><div class="result" id="result">
+  <div class="big">🏖️🏆</div>
+  <h2 id="rtitle">¡Terminaste!</h2>
+  <div class="score"><span id="rscore">0</span> / 25</div>
+  <div class="stars" id="rstars"></div>
+  <p id="rmsg"></p>
+  <a class="nav go" href="gabarito.html" style="display:inline-block;background:var(--green);box-shadow:0 3px 0 #1f6e2f">📗 Ver Gabarito comentado ▶</a>
+  <div style="margin-top:10px"><button class="btn grey" onclick="restart()">🔁 Refazer</button></div>
+</div></div>
+
+<div class="savebar">
+  <a class="nav" href="index.html">⌂ Início</a>
+  <a class="nav" href="leitura-guiada.html">📖 Leitura</a>
+  <a class="nav" href="quiz.html">🎯 Quiz</a>
+  <a class="nav" href="gabarito.html">📗 Gabarito</a>
+  <button class="nav" onclick="askReset()">🗑️ Zerar</button>
+</div>
+
+<div class="modal" id="modalR"><div class="box">
+  <h3>Zerar tudo?</h3>
+  <p>Isso apaga suas respostas do simulado. Quer mesmo zerar?</p>
+  <button class="nav" style="background:var(--green)" onclick="doReset()">Sim, zerar</button>
+  <button class="nav" style="background:#adb5bd" onclick="closeModal('modalR')">Não</button>
+</div></div>
+
+<div class="modal" id="modalF"><div class="box">
+  <h3>Terminar o simulado?</h3>
+  <p id="ftxt">Você vai ver sua nota. Ainda dá para refazer depois. Terminar agora?</p>
+  <button class="nav" style="background:var(--green)" onclick="doFinish()">Sim, terminar</button>
+  <button class="nav" style="background:#adb5bd" onclick="closeModal('modalF')">Ainda não</button>
+</div></div>
+
+<script>
+const KEY='playa_simulado_3ano';
+// c = índice da resposta certa (respostas espalhadas entre A,B,C,D)
+const Q=[
+ {q:'Como se diz "o chapéu" em espanhol?',o:['el sombrero','el flotador','el cubo','las gafas de sol'],c:0},
+ {q:'Como se diz "o baldinho"?',o:['la pala','el cubo','la sombrilla','el sombrero'],c:1},
+ {q:'O que significa "las chanclas"?',o:['a esteira','o guarda-sol','os chinelos','o chapéu'],c:2},
+ {q:'Como se diz "a boia"?',o:['el flotador','la pala','el rastrillo','la reposera'],c:0},
+ {q:'Como se diz "o protetor solar"?',o:['las gafas de sol','el protector solar','la esterilla','el bikini'],c:1},
+ {q:'Qual destes é "os óculos de sol"?',o:['la sombrilla','las chanclas','la reposera','las gafas de sol'],c:3},
+ {q:'Como se diz "a praia"?',o:['la playa','la piscina','la escuela','la heladería'],c:0},
+ {q:'Como se diz "a sorveteria"?',o:['la escuela','la piscina','la heladería','la playa'],c:2},
+ {q:'Complete: "Yo ___ a la playa." (Eu vou à praia.)',o:['vas','va','vamos','voy'],c:3},
+ {q:'Complete: "Nosotros ___ a la piscina." (Nós vamos à piscina.)',o:['vamos','voy','va','vas'],c:0},
+ {q:'Complete: "___ pala." (Pala é feminina.)',o:['un','el','una','los'],c:2},
+ {q:'Complete: "___ cubo." (Cubo é masculino.)',o:['una','un','la','unas'],c:1},
+ {q:'Mostrando um baldinho: "¿Esto es un cubo?". Resposta certa:',o:['No, esto es una pala.','Sí, esto es una pala.','No, esto es un cubo.','Sí, esto es un cubo.'],c:3},
+ {q:'Mostrando uma pazinha: "¿Esto es una esterilla?". Resposta certa:',o:['Sí, esto es una esterilla.','Sí, esto es una pala.','No, esto es un cubo.','No, esto es una pala.'],c:3},
+ {q:'Complete: "Tú ___ a la escuela." (Você vai à escola.)',o:['voy','vamos','vas','va'],c:2},
+ {q:'Complete: "Ella ___ a la heladería." (Ela vai à sorveteria.)',o:['va','voy','vas','vamos'],c:0},
+ {q:'Qual frase está CERTA?',o:['Yo vas a la playa.','Nosotros voy a la playa.','Yo voy a la playa.','Tú voy a la playa.'],c:2},
+ {q:'A palavra "sombrilla" é...',o:['masculina','feminina','plural','um verbo'],c:1},
+ {q:'"El bikini" usa qual palavra para "um"?',o:['un','una','unas','la'],c:0},
+ {q:'O que significa a pergunta "¿Adónde vas?"',o:['O que é isto?','Para onde você vai?','Quem é você?','Que horas são?'],c:1},
+ {q:'Qual objeto a gente estende para deitar na areia?',o:['el rastrillo','la esterilla','las gafas de sol','el cubo'],c:1},
+ {q:'Como se diz "o ancinho" (rastelo de brincar na areia)?',o:['la pala','el flotador','la reposera','el rastrillo'],c:3},
+ {q:'Como se diz "Nós vamos à sorveteria"?',o:['Yo voy a la heladería.','Ella va a la heladería.','Tú vas a la heladería.','Nosotros vamos a la heladería.'],c:3},
+ {q:'Complete a sequência do verbo ir: yo voy, tú vas, él ___, nosotros vamos.',o:['vas','voy','va','vamos'],c:2},
+ {q:'Como se diz "a espreguiçadeira"?',o:['la reposera','la sombrilla','la esterilla','el cubo'],c:0}
+];
+const LET=['A','B','C','D'];
+let cur=0, answers={}, mem={};
+try{answers=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){answers=mem;}
+const box=document.getElementById('simbox');
+Q.forEach((item,i)=>{
+  const d=document.createElement('div');d.className='card';d.id='c'+i;
+  let opts=item.o.map((o,j)=>`<button id="o${i}_${j}" onclick="pick(${i},${j})"><span class="let">${LET[j]}</span>${o}</button>`).join('');
+  const last=(i===Q.length-1);
+  d.innerHTML=`<div class="qnum">Questão ${i+1} de 25</div>
+    <div class="qt">${item.q}</div>
+    <div class="opts">${opts}</div>
+    <div class="navb">
+      <button class="btn grey" onclick="go(${i-1})" ${i===0?'disabled':''}>◀ Voltar</button>
+      ${last?'<button class="btn go" onclick="askFinish()">✅ Terminar</button>':`<button class="btn" onclick="go(${i+1})">Próxima ▶</button>`}
+    </div>`;
+  box.appendChild(d);
+});
+function show(i){document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+  document.getElementById('c'+i).classList.add('active');cur=i;
+  document.getElementById('result').classList.remove('show');window.scrollTo({top:0,behavior:'smooth'});}
+function go(i){if(i<0||i>=Q.length)return;show(i);}
+function pick(i,j){
+  answers[i]=j;save();
+  const d=document.getElementById('c'+i);
+  d.querySelectorAll('.opts button').forEach((b,k)=>b.classList.toggle('sel',k===j));
+  update();
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(answers));}catch(e){mem=answers;}}
+function update(){
+  let ans=Object.keys(answers).length;
+  document.getElementById('ansc').textContent=ans;
+  document.getElementById('pbar').style.width=(ans/Q.length*100)+'%';
+}
+function askFinish(){
+  const ans=Object.keys(answers).length;
+  document.getElementById('ftxt').textContent = ans<25
+    ? `Você respondeu ${ans} de 25. As em branco contam como erradas. Quer terminar mesmo assim?`
+    : 'Você respondeu todas! Vamos ver sua nota?';
+  document.getElementById('modalF').classList.add('show');
+}
+function doFinish(){
+  closeModal('modalF');
+  let sc=0;Q.forEach((it,i)=>{if(answers[i]===it.c)sc++;});
+  document.querySelectorAll('.card').forEach(c=>c.classList.remove('active'));
+  const r=document.getElementById('result');r.classList.add('show');
+  document.getElementById('rscore').textContent=sc;
+  document.getElementById('pbar').style.width='100%';
+  let st=Math.max(1,Math.round(sc/5));document.getElementById('rstars').textContent='⭐'.repeat(Math.min(5,st));
+  const pct=Math.round(sc/25*100);
+  let title,msg;
+  if(sc>=22){title='¡Excelente! 🏆';msg='Você está pronto para a prova! Mandou muito bem.';}
+  else if(sc>=15){title='¡Muy bien! 🎉';msg='Bom resultado! Confira o gabarito e revise o que faltou.';}
+  else{title='¡Vamos a repasar! 🌈';msg='Dá uma boa olhada no gabarito e na Leitura Guiada. Você consegue!';}
+  document.getElementById('rtitle').textContent=title;
+  document.getElementById('rmsg').textContent=msg+' ('+pct+'%)';
+  r.scrollIntoView({behavior:'smooth'});
+}
+function restart(){answers={};save();document.querySelectorAll('.opts button').forEach(b=>b.classList.remove('sel'));update();document.getElementById('result').classList.remove('show');show(0);}
+// restaurar seleções
+Q.forEach((it,i)=>{if(i in answers){const d=document.getElementById('c'+i);const b=document.getElementById('o'+i+'_'+answers[i]);if(b)b.classList.add('sel');}});
+update();show(0);
+function askReset(){document.getElementById('modalR').classList.add('show');}
+function closeModal(id){document.getElementById(id).classList.remove('show');}
+function doReset(){try{localStorage.removeItem(KEY);}catch(e){}mem={};location.reload();}
+</script>
+</body>
+</html>
