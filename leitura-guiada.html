@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leitura Guiada · ¡Vamos a la playa! · Espanhol 3º ano · Cap. 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--sea:#0277bd;--sky:#4fc3f7;--turq:#26c6da;--sand:#f6b23e;--sand2:#fff3d6;--coral:#ff7a59;--sun:#ffd23f;--green:#2f9e44;--green2:#69db7c;--red:#f03e3e;--ink:#0a3d5c;--foam:#e3f6fd}
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#bbeaff,#e3f6fd 40%,#fff6e0);font-family:'Nunito',system-ui,sans-serif;color:var(--ink);line-height:1.6;padding-bottom:92px}
+  h1,h2,h3,.baloo{font-family:'Baloo 2','Nunito',sans-serif}
+  header{background:linear-gradient(120deg,#0277bd,#26c6da);color:#fff;padding:18px 16px;border-bottom:6px solid var(--sun);box-shadow:0 6px 0 #015b8f}
+  .wrap{max-width:820px;margin:0 auto;padding:0 16px}
+  .titlerow{display:flex;align-items:center;gap:14px}.mascot{font-size:2.8rem}
+  h1{margin:0;font-size:1.4rem;text-shadow:0 2px 0 rgba(0,0,0,.18)}.sub{font-size:.92rem;opacity:.96}
+  .hud{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+  .bar{flex:1;min-width:140px;height:16px;background:#cdeffb;border:3px solid #015b8f;border-radius:20px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sun),var(--green2));transition:.4s}
+  .pill{background:#fff;border-radius:20px;padding:4px 12px;font-weight:800;border:3px solid var(--sun);color:var(--sea);white-space:nowrap}
+  .intro{background:#fff;border:3px dashed var(--turq);border-radius:18px;padding:14px 18px;margin:18px 0}
+  .block{background:#fff;border-radius:20px;border:4px solid #cdeffb;box-shadow:0 6px 0 rgba(2,119,189,.12);padding:18px 20px;margin:20px 0}
+  .block h2{color:var(--sea);margin:0 0 8px;font-size:1.25rem;display:flex;align-items:center;gap:8px}
+  .block .num{background:var(--coral);color:#fff;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;font-size:1rem;flex:0 0 auto}
+  .block p{margin:10px 0}
+  .es{color:var(--sea);font-weight:800}
+  .pt{color:#8a6d3a;font-style:italic}
+  .voc{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+  .card{background:var(--foam);border:3px solid var(--turq);border-radius:14px;padding:10px 12px;min-width:150px;flex:1 1 150px;text-align:center}
+  .card .w{font-family:'Baloo 2';font-size:1.12rem;color:var(--sea)}
+  .card .g{font-size:.82rem;color:var(--coral);font-weight:800}
+  .card .t{font-size:.9rem;color:#6b7280}
+  .card .em{font-size:1.9rem;display:block;margin-bottom:2px}
+  .spk{background:var(--sun);border:2px solid #e0a800;border-radius:50%;width:34px;height:34px;font-size:1rem;cursor:pointer;margin-top:6px;box-shadow:0 2px 0 #b5651d}
+  .spk:active{transform:translateY(2px);box-shadow:none}
+  .phrase{background:var(--foam);border-left:6px solid var(--sky);border-radius:8px;padding:10px 12px;margin:10px 0;font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .dado{background:#fff3bf;border-left:6px solid var(--sun);border-radius:8px;padding:8px 12px;margin:10px 0;font-weight:700}
+  table.ir{width:100%;border-collapse:collapse;margin:12px 0;background:#fff}
+  table.ir th,table.ir td{border:2px solid var(--turq);padding:8px;text-align:center;font-weight:700}
+  table.ir th{background:var(--turq);color:#fff;font-family:'Baloo 2'}
+  table.ir td .spk{width:28px;height:28px;font-size:.85rem;margin:0 0 0 4px}
+  .q{background:#fff8e8;border:2px dashed var(--coral);border-radius:14px;padding:12px 14px;margin-top:14px}
+  .q .qt{font-weight:800;color:var(--coral);margin-bottom:8px}
+  .q button{display:block;width:100%;text-align:left;margin:6px 0;background:#fff;border:2px solid #ffd9cc;border-radius:10px;padding:9px 12px;font-family:'Nunito';font-weight:700;cursor:pointer;transition:.1s}
+  .q button:hover{border-color:var(--coral)}
+  .q button.ok{background:#d3f9d8;border-color:var(--green)}
+  .q button.no{background:#ffe3e3;border-color:var(--red)}
+  .q .fb{margin-top:8px;font-weight:800;display:none}
+  .q .fb.show{display:block;animation:pop .3s}
+  @keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+  .done{display:none;text-align:center;background:linear-gradient(120deg,#fff3bf,#ffd23f);border:4px solid var(--sand);border-radius:22px;padding:24px;margin:24px 0}
+  .done.show{display:block;animation:pop .4s}.done .big{font-size:3.4rem}.done h2{color:var(--sea);margin:6px 0}
+  .savebar{position:fixed;bottom:0;left:0;right:0;background:#e3f6fdee;border-top:3px solid var(--sea);padding:8px 14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;backdrop-filter:blur(4px)}
+  a.nav,button.nav{background:var(--sea);color:#fff;border:none;border-radius:12px;padding:9px 16px;font-family:'Baloo 2';text-decoration:none;box-shadow:0 3px 0 #015b8f;cursor:pointer;font-size:1rem}
+  .modal{position:fixed;inset:0;background:rgba(10,61,92,.55);display:none;place-items:center;z-index:50;padding:16px}
+  .modal.show{display:grid}
+  .modal .box{background:#fff;border-radius:20px;border:4px solid var(--sea);padding:22px;max-width:340px;text-align:center}
+  .modal .box h3{color:var(--sea);margin:0 0 8px}
+  .modal .box button{margin:6px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="titlerow"><div class="mascot">🐢</div><div>
+    <h1>Leitura Guiada — ¡Vamos a la playa!</h1>
+    <div class="sub">Espanhol · 3º ano · Capítulo 5 · clique no 🔊 para ouvir em espanhol</div>
+  </div></div>
+  <div class="hud">
+    <div class="bar"><i id="pbar"></i></div>
+    <div class="pill">⭐ <span id="stars">0</span>/8</div>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div class="intro">🏖️ <b>¡Hola! Sou a Tuga, a tartaruga da praia!</b> Hoje a gente vai aprender os <b>objetos da praia</b> em espanhol, quando usar <b>un</b> e <b>una</b>, e como dizer <b>para onde a gente vai</b> com o verbo <b>ir</b>. Ouça cada palavra no 🔊 e repita bem alto. ¡Vamos a la playa! 🌊☀️</div>
+</div>
+
+<div class="wrap" id="blocks"></div>
+
+<div class="wrap"><div class="done" id="done">
+  <div class="big">🏆🏖️</div>
+  <h2>¡Muy bien! (Muito bem!)</h2>
+  <p>Você terminou a Leitura Guiada e ganhou <b><span id="fstars">0</span> estrelas</b>! Agora vá para o <b>Quiz</b> para testar o que aprendeu. 🐚</p>
+  <a class="nav" href="quiz.html">🎯 Ir para o Quiz ▶</a>
+</div></div>
+
+<div class="savebar">
+  <a class="nav" href="index.html">⌂ Início</a>
+  <a class="nav" href="quiz.html">🎯 Quiz</a>
+  <a class="nav" href="resumo.html">🗺️ Resumo</a>
+  <a class="nav" href="simulado.html">📝 Simulado</a>
+  <button class="nav" onclick="askReset()">🗑️ Zerar</button>
+</div>
+
+<div class="modal" id="modal"><div class="box">
+  <h3>Zerar tudo?</h3>
+  <p>Isso apaga suas estrelas desta página. Quer mesmo zerar?</p>
+  <button class="nav" style="background:var(--green)" onclick="doReset()">Sim, zerar</button>
+  <button class="nav" style="background:#adb5bd" onclick="closeModal()">Não</button>
+</div></div>
+
+<script>
+const KEY='playa_leitura_3ano';
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=1;speechSynthesis.speak(u);}catch(e){}}
+function voc(list){return '<div class="voc">'+list.map(v=>`<div class="card"><span class="em">${v[3]}</span><div class="w">${v[0]}</div><div class="g">${v[1]}</div><div class="t">${v[2]}</div><button class="spk" onclick="speak('${v[0]}')">🔊</button></div>`).join('')+'</div>';}
+function ph(es,pt){return `<div class="phrase"><button class="spk" onclick="speak('${es.replace(/'/g,"\\'")}')">🔊</button><span><span class="es">${es}</span> <span class="pt">— ${pt}</span></span></div>`;}
+
+const B=[
+ {t:'Los objetos de la playa (parte 1)',em:'🪣',
+  html:`<p>Na praia (<span class="es">la playa</span>) a gente leva muitas coisas! Ouça cada uma no 🔊. O <b class="es">el</b> é para palavras <b>masculinas</b> e o <b class="es">la</b> para <b>femininas</b>.</p>`
+   +voc([['el sombrero','(♂)','o chapéu','👒'],['el bañador','(♂)','o maiô / a sunga','🩲'],['el bikini','(♂)','o biquíni','👙'],['las chanclas','(♀)','os chinelos','🩴'],['el cubo','(♂)','o baldinho','🪣'],['el rastrillo','(♂)','o ancinho','🔱']]),
+  q:'Como se diz "o baldinho" em espanhol?',
+  o:['el sombrero','el cubo','las chanclas'],c:1},
+
+ {t:'Los objetos de la playa (parte 2)',em:'🏖️',
+  html:`<p>Mais objetos da praia! Ouça no 🔊 e repita. Repare no <b class="es">el</b> e no <b class="es">la</b> de cada um.</p>`
+   +voc([['la pala','(♀)','a pazinha','🥄'],['la esterilla','(♀)','a esteira','🟫'],['el flotador','(♂)','a boia','🛟'],['el protector solar','(♂)','o protetor solar','🧴'],['la sombrilla','(♀)','o guarda-sol','⛱️'],['las gafas de sol','(♀)','os óculos de sol','🕶️'],['la reposera','(♀)','a espreguiçadeira','🏝️']])
+   +`<div class="dado">💡 Truque: o <b class="es">cubo</b> e a <b class="es">pala</b> andam juntos na areia — o baldinho e a pazinha! 🪣🥄</div>`,
+  q:'Qual objeto a gente usa para não pisar na areia quente?',
+  o:['la sombrilla','las chanclas','el cubo'],c:1},
+
+ {t:'Los artículos: un y una',em:'✨',
+  html:`<p>Quando a gente fala de <b>um</b> objeto qualquer, usamos <b class="es">un</b> ou <b class="es">una</b>:</p>
+   <p>👉 Palavra <b>masculina</b> (as do <b class="es">el</b>) → <b class="es">un</b>. Ex.: <span class="es">el cubo → un cubo</span>.</p>
+   <p>👉 Palavra <b>feminina</b> (as do <b class="es">la</b>) → <b class="es">una</b>. Ex.: <span class="es">la pala → una pala</span>.</p>`
+   +ph("un sombrero, un flotador, un bikini","um chapéu, uma boia, um biquíni")
+   +ph("una sombrilla, una pala, una esterilla","um guarda-sol, uma pazinha, uma esteira")
+   +`<div class="dado">🎯 Dica de ouro: se leva <b class="es">el</b>, o "um" é <b class="es">un</b>. Se leva <b class="es">la</b>, o "um" é <b class="es">una</b>.</div>`,
+  q:'Complete: "___ sombrilla" (um guarda-sol). Sombrilla é feminina.',
+  o:['un','una','el'],c:1},
+
+ {t:'¿Esto es un...? Perguntar e responder',em:'❓',
+  html:`<p>Para perguntar o que é um objeto, dizemos <span class="es">¿Esto es un/una...?</span> (Isto é um/uma...?). A resposta pode ser <b>SIM</b> ou <b>NÃO</b>:</p>`
+   +ph("¿Esto es un cubo? — Sí, esto es un cubo.","Isto é um baldinho? — Sim, isto é um baldinho.")
+   +ph("¿Esto es una esterilla? — No, esto es una pala.","Isto é uma esteira? — Não, isto é uma pazinha.")
+   +`<div class="dado">📝 Na resposta, repita <b class="es">un</b> ou <b class="es">una</b> igualzinho ao objeto: <span class="es">un</span> cubo, <span class="es">una</span> pala.</div>`,
+  q:'"¿Esto es una pala?" mostrando um baldinho (cubo). Qual resposta é certa?',
+  o:['Sí, esto es una pala.','No, esto es un cubo.','No, esto es una pala.'],c:1},
+
+ {t:'El verbo IR (para onde a gente vai)',em:'🚶',
+  html:`<p>O verbo <b class="es">ir</b> serve para dizer <b>para onde</b> a gente vai. Ele muda conforme quem fala. Ouça cada forma no 🔊:</p>
+   <table class="ir">
+     <tr><th>Quem</th><th>Verbo ir</th><th>Exemplo</th></tr>
+     <tr><td>yo (eu)</td><td class="es">voy <button class="spk" onclick="speak('yo voy')">🔊</button></td><td class="es">Yo voy a la playa.</td></tr>
+     <tr><td>tú (você)</td><td class="es">vas <button class="spk" onclick="speak('tú vas')">🔊</button></td><td class="es">Tú vas a la escuela.</td></tr>
+     <tr><td>él / ella</td><td class="es">va <button class="spk" onclick="speak('él va, ella va')">🔊</button></td><td class="es">Ella va a la heladería.</td></tr>
+     <tr><td>nosotros (nós)</td><td class="es">vamos <button class="spk" onclick="speak('nosotros vamos')">🔊</button></td><td class="es">Nosotros vamos a la piscina.</td></tr>
+   </table>
+   <div class="dado">🧠 Guarde o ritmo: <b class="es">voy, vas, va, vamos</b>. Todos começam com "v"!</div>`,
+  q:'Complete: "Yo ___ a la playa." (Eu vou à praia.)',
+  o:['vas','voy','vamos'],c:1},
+
+ {t:'¿Adónde vas? Os lugares',em:'🗺️',
+  html:`<p>Depois do verbo <b class="es">ir</b> vem o lugar, quase sempre com <b class="es">a la</b>. Ouça os lugares no 🔊:</p>`
+   +voc([['la playa','','a praia','🏖️'],['la piscina','','a piscina','🏊'],['la escuela','','a escola','🏫'],['la heladería','','a sorveteria','🍦']])
+   +ph("¿Adónde vas? — Voy a la playa.","Para onde você vai? — Vou à praia.")
+   +ph("Nosotros vamos a la heladería.","Nós vamos à sorveteria.")
+   +`<div class="dado">🍦 <b class="es">Heladería</b> vem de <b class="es">helado</b> (sorvete). É a sorveteria!</div>`,
+  q:'"Nós vamos à piscina." Como fica em espanhol?',
+  o:['Yo voy a la piscina.','Nosotros vamos a la piscina.','Tú vas a la piscina.'],c:1},
+
+ {t:'Revisión final 1',em:'⭐',
+  html:`<p>Vamos juntar tudo! Leia e ouça as frases no 🔊.</p>`
+   +ph("Voy a la playa con mi sombrilla y mi protector solar.","Vou à praia com meu guarda-sol e meu protetor solar.")
+   +ph("¿Esto es un flotador? — Sí, esto es un flotador.","Isto é uma boia? — Sim, isto é uma boia."),
+  q:'Qual objeto a gente usa na pele para se proteger do sol?',
+  o:['el protector solar','el cubo','las gafas de sol'],c:0},
+
+ {t:'Revisión final 2',em:'🌟',
+  html:`<p>A última estrela da praia é sua! 🐚 Leia e ouça no 🔊.</p>`
+   +ph("Ella va a la heladería y yo voy a la piscina.","Ela vai à sorveteria e eu vou à piscina.")
+   +ph("Necesito una pala y un cubo para jugar en la arena.","Preciso de uma pazinha e um baldinho para brincar na areia."),
+  q:'Complete: "___ pala" e "___ cubo". (una/un conforme o gênero)',
+  o:['un pala / una cubo','una pala / un cubo','el pala / la cubo'],c:1}
+];
+
+let state={};let mem={};
+try{state=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){state=mem;}
+const box=document.getElementById('blocks');
+B.forEach((b,i)=>{
+  const d=document.createElement('div');d.className='block';d.id='b'+i;
+  let opts=b.o.map((o,j)=>`<button onclick="answer(${i},${j})">${o}</button>`).join('');
+  d.innerHTML=`<h2><span class="num">${i+1}</span> ${b.em} ${b.t}</h2>${b.html}
+    <div class="q"><div class="qt">❓ Desafio: ${b.q}</div>${opts}<div class="fb"></div></div>`;
+  box.appendChild(d);
+});
+function answer(i,j){
+  const d=document.getElementById('b'+i);const fb=d.querySelector('.fb');const btns=d.querySelectorAll('.q button');
+  btns.forEach(b=>b.disabled=true);
+  const c=B[i].c;
+  if(j===c){btns[j].classList.add('ok');fb.textContent='🎉 ¡Muy bien! Ganhou uma estrela!';fb.style.color='#2b8a3e';}
+  else{btns[j].classList.add('no');btns[c].classList.add('ok');fb.textContent='🙂 Quase! A resposta certa está em verde.';fb.style.color='#c92a2a';}
+  fb.classList.add('show');
+  state['b'+i]=(j===c)?1:0;save();update();
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){mem=state;}}
+function update(){
+  let stars=0,answered=0;
+  B.forEach((b,i)=>{if('b'+i in state){answered++;if(state['b'+i]===1)stars++;
+    const d=document.getElementById('b'+i);d.querySelectorAll('.q button').forEach(bt=>bt.disabled=true);}});
+  document.getElementById('stars').textContent=stars;
+  document.getElementById('fstars').textContent=stars;
+  document.getElementById('pbar').style.width=(answered/B.length*100)+'%';
+  if(answered>=B.length){document.getElementById('done').classList.add('show');}
+}
+B.forEach((b,i)=>{if('b'+i in state){const d=document.getElementById('b'+i);const btns=d.querySelectorAll('.q button');const c=b.c;btns[c].classList.add('ok');const fb=d.querySelector('.fb');if(state['b'+i]===1){fb.textContent='🎉 ¡Muy bien! Ganhou uma estrela!';fb.style.color='#2b8a3e';}else{fb.textContent='🙂 A resposta certa está em verde.';fb.style.color='#c92a2a';}fb.classList.add('show');btns.forEach(bt=>bt.disabled=true);}});
+function askReset(){document.getElementById('modal').classList.add('show');}
+function closeModal(){document.getElementById('modal').classList.remove('show');}
+function doReset(){try{localStorage.removeItem(KEY);}catch(e){}mem={};location.reload();}
+update();
+</script>
+</body>
+</html>
