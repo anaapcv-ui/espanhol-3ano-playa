@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdadeiro ou Falso · ¡Vamos a la playa! · Espanhol 3º ano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--sea:#0277bd;--sky:#4fc3f7;--turq:#26c6da;--sand:#f6b23e;--coral:#ff7a59;--sun:#ffd23f;--green:#2f9e44;--green2:#69db7c;--red:#f03e3e;--ink:#0a3d5c;--foam:#e3f6fd}
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#bbeaff,#e3f6fd 50%,#fff6e0);font-family:'Nunito',system-ui,sans-serif;color:var(--ink);line-height:1.6;padding-bottom:92px}
+  h1,h2,h3,.baloo{font-family:'Baloo 2','Nunito',sans-serif}
+  header{background:linear-gradient(120deg,#0277bd,#26c6da);color:#fff;padding:18px 16px;border-bottom:6px solid var(--sun);box-shadow:0 6px 0 #015b8f}
+  .wrap{max-width:720px;margin:0 auto;padding:0 16px}
+  .titlerow{display:flex;align-items:center;gap:14px}.mascot{font-size:2.8rem}
+  h1{margin:0;font-size:1.4rem;text-shadow:0 2px 0 rgba(0,0,0,.18)}.sub{font-size:.92rem;opacity:.96}
+  .hud{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+  .bar{flex:1;min-width:140px;height:16px;background:#cdeffb;border:3px solid #015b8f;border-radius:20px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sun),var(--green2));transition:.4s}
+  .pill{background:#fff;border-radius:20px;padding:4px 12px;font-weight:800;border:3px solid var(--sun);color:var(--sea);white-space:nowrap}
+  .intro{background:#fff;border:3px dashed var(--turq);border-radius:18px;padding:14px 18px;margin:18px 0}
+  .card{background:#fff;border-radius:22px;border:4px solid #cdeffb;box-shadow:0 6px 0 rgba(2,119,189,.14);padding:24px 20px;margin:20px 0;text-align:center}
+  .frase{font-size:1.35rem;font-weight:800;font-family:'Baloo 2';color:var(--ink);margin:6px 0 18px}
+  .es{color:var(--sea)}
+  .vf{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .vf button{border:none;border-radius:16px;padding:16px 26px;font-family:'Baloo 2';font-size:1.2rem;cursor:pointer;color:#fff}
+  .vf .v{background:var(--green);box-shadow:0 4px 0 #1f6e2f}
+  .vf .f{background:var(--red);box-shadow:0 4px 0 #b02525}
+  .vf button:active{transform:translateY(3px);box-shadow:none}
+  .vf button:disabled{opacity:.55;cursor:default}
+  .fb{margin-top:16px;font-weight:800;display:none;padding:12px 14px;border-radius:14px;text-align:left}
+  .fb.show{display:block;animation:pop .3s}
+  .fb.good{background:#d3f9d8;color:#2b8a3e}.fb.bad{background:#ffe3e3;color:#c92a2a}
+  @keyframes pop{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+  .spk{background:var(--sun);border:2px solid #e0a800;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;box-shadow:0 2px 0 #b5651d;vertical-align:middle}
+  .next{background:var(--sea);color:#fff;border:none;border-radius:14px;padding:12px 24px;font-family:'Baloo 2';font-size:1.05rem;cursor:pointer;box-shadow:0 3px 0 #015b8f;margin-top:14px;display:none}
+  .next.show{display:inline-block}
+  .result{display:none;text-align:center;background:linear-gradient(120deg,#fff3bf,#ffd23f);border:4px solid var(--sand);border-radius:22px;padding:26px;margin:20px 0}
+  .result.show{display:block;animation:pop .4s}.result .big{font-size:3.6rem}
+  .result h2{color:var(--sea);margin:6px 0}.result .score{font-size:2rem;font-weight:800;color:var(--coral)}
+  .stars{font-size:1.8rem;letter-spacing:3px}
+  .btn{background:var(--sea);color:#fff;border:none;border-radius:12px;padding:11px 20px;font-family:'Baloo 2';box-shadow:0 3px 0 #015b8f;cursor:pointer;font-size:1rem}
+  .savebar{position:fixed;bottom:0;left:0;right:0;background:#e3f6fdee;border-top:3px solid var(--sea);padding:8px 14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;backdrop-filter:blur(4px)}
+  a.nav,button.nav{background:var(--sea);color:#fff;border:none;border-radius:12px;padding:9px 16px;font-family:'Baloo 2';text-decoration:none;box-shadow:0 3px 0 #015b8f;cursor:pointer;font-size:1rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="titlerow"><div class="mascot">🎲</div><div>
+    <h1>Verdadeiro ou Falso — ¡Vamos a la playa!</h1>
+    <div class="sub">Espanhol · 3º ano · Cap. 5 · 12 frases sorteadas · ¿Verdadero o falso?</div>
+  </div></div>
+  <div class="hud">
+    <div class="bar"><i id="pbar"></i></div>
+    <div class="pill">🐢 <span id="idx">1</span>/12 · ⭐ <span id="score">0</span></div>
+  </div>
+</div></header>
+
+<div class="wrap">
+  <div class="intro" id="intro">🌊 A tartaruga Tuga vai mostrar 12 frases (sorteadas na hora!). Você decide: é <b style="color:var(--green)">VERDADEIRO</b> ✅ ou <b style="color:var(--red)">FALSO</b> ❌? Depois aparece a explicação. Boa sorte! 🐚</div>
+  <div class="card" id="game"></div>
+</div>
+
+<div class="wrap"><div class="result" id="result">
+  <div class="big">🏆🏖️</div>
+  <h2 id="rtitle">¡Bravo!</h2>
+  <div class="score"><span id="rscore">0</span> / 12</div>
+  <div class="stars" id="rstars"></div>
+  <p id="rmsg"></p>
+  <button class="btn" onclick="startGame()">🔁 Jogar de novo (sorteia outras frases)</button>
+  <a class="nav" href="simulado.html" style="display:inline-block;margin-top:8px">📝 Ir para o Simulado ▶</a>
+</div></div>
+
+<div class="savebar">
+  <a class="nav" href="index.html">⌂ Início</a>
+  <a class="nav" href="resumo.html">🗺️ Resumo</a>
+  <a class="nav" href="quiz.html">🎯 Quiz</a>
+  <a class="nav" href="simulado.html">📝 Simulado</a>
+</div>
+
+<script>
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='es-ES';u.rate=1;speechSynthesis.speak(u);}catch(e){}}
+// Banco de 22 frases. v=true (verdadeiro) / false (falso). say = frase em espanhol para ouvir.
+const BANK=[
+ {f:'"El cubo" significa "o baldinho".',v:true,e:'Isso mesmo! el cubo = o baldinho. 🪣',say:'el cubo'},
+ {f:'"La pala" é masculina e usa "un".',v:false,e:'Falso! "pala" é feminina: dizemos "una pala". 🥄',say:'una pala'},
+ {f:'"Las chanclas" são os chinelos.',v:true,e:'Correto! las chanclas = os chinelos. 🩴',say:'las chanclas'},
+ {f:'"Yo voy" significa "eu vou".',v:true,e:'Sí! yo voy = eu vou. 🚶',say:'Yo voy'},
+ {f:'A frase "Nosotros va a la playa" está certa.',v:false,e:'Falso! Com "nosotros" é "vamos": Nosotros vamos a la playa. 🏖️',say:'Nosotros vamos a la playa'},
+ {f:'"La heladería" é a sorveteria.',v:true,e:'Correto! la heladería = a sorveteria (de helado = sorvete). 🍦',say:'la heladería'},
+ {f:'"El sombrero" é o chapéu.',v:true,e:'Sí! el sombrero = o chapéu. 👒',say:'el sombrero'},
+ {f:'Para "flotador" usamos "una flotador".',v:false,e:'Falso! "flotador" é masculino: un flotador. 🛟',say:'un flotador'},
+ {f:'"Las gafas de sol" são os óculos de sol.',v:true,e:'Correto! las gafas de sol = os óculos de sol. 🕶️',say:'las gafas de sol'},
+ {f:'"Tú vas" significa "você vai".',v:true,e:'Sí! tú vas = você vai. 🚶',say:'Tú vas'},
+ {f:'"El protector solar" a gente passa na pele para se proteger do sol.',v:true,e:'Correto! el protector solar = o protetor solar. 🧴',say:'el protector solar'},
+ {f:'"La sombrilla" significa "o chinelo".',v:false,e:'Falso! la sombrilla = o guarda-sol. O chinelo é "las chanclas". ⛱️',say:'la sombrilla'},
+ {f:'Com palavra feminina a gente usa "una".',v:true,e:'Correto! Feminina (leva "la") → "una". Ex.: una pala. ✨',say:'una pala'},
+ {f:'"Ella va a la escuela" significa "ela vai à escola".',v:true,e:'Sí! ella va a la escuela = ela vai à escola. 🏫',say:'Ella va a la escuela'},
+ {f:'"El bikini" é feminino e usa "una".',v:false,e:'Falso! "bikini" é masculino: un bikini. 👙',say:'un bikini'},
+ {f:'"Vamos" é a forma de "nosotros" (nós) do verbo ir.',v:true,e:'Correto! nosotros vamos. 🚶🚶',say:'Nosotros vamos'},
+ {f:'"La esterilla" é a esteira.',v:true,e:'Sí! la esterilla = a esteira (para deitar na areia). 🟫',say:'la esterilla'},
+ {f:'"La piscina" significa "a praia".',v:false,e:'Falso! la piscina = a piscina. A praia é "la playa". 🏊',say:'la piscina'},
+ {f:'"Voy, vas, va, vamos" são formas do verbo ir.',v:true,e:'Correto! São as formas do verbo ir. 🚶',say:'voy, vas, va, vamos'},
+ {f:'Mostrando um cubo, a resposta certa é "No, esto es una pala".',v:false,e:'Falso! Se é um cubo, responde: Sí, esto es un cubo. 🪣',say:'Sí, esto es un cubo'},
+ {f:'"El rastrillo" é o ancinho (rastelo de brincar na areia).',v:true,e:'Sí! el rastrillo = o ancinho. 🔱',say:'el rastrillo'},
+ {f:'Com palavra masculina (que leva "el") a gente usa "un".',v:true,e:'Correto! Masculina → "un". Ex.: un cubo. ✨',say:'un cubo'}
+];
+let round=[],pos=0,score=0,mem={};
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function startGame(){
+  round=shuffle(BANK.slice()).slice(0,12);pos=0;score=0;
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('game').style.display='block';
+  document.getElementById('intro').style.display='block';
+  render();
+}
+function render(){
+  const it=round[pos];
+  document.getElementById('idx').textContent=pos+1;
+  document.getElementById('score').textContent=score;
+  document.getElementById('pbar').style.width=(pos/12*100)+'%';
+  document.getElementById('game').innerHTML=`
+    <div class="frase">🐢 ${it.f}</div>
+    <div class="vf">
+      <button class="v" onclick="answer(true)">✅ VERDADEIRO</button>
+      <button class="f" onclick="answer(false)">❌ FALSO</button>
+    </div>
+    <div class="fb" id="fb"></div>
+    <button class="next" id="next" onclick="nextQ()">Próxima ▶</button>`;
+}
+function answer(choice){
+  const it=round[pos];const ok=(choice===it.v);
+  document.querySelectorAll('.vf button').forEach(b=>b.disabled=true);
+  if(ok)score++;
+  const fb=document.getElementById('fb');
+  fb.className='fb show '+(ok?'good':'bad');
+  fb.innerHTML=(ok?'🎉 ¡Correcto! ':'🙂 Quase! ')+it.e+
+    ` <button class="spk" onclick="speak('${it.say.replace(/'/g,"\\'")}')">🔊</button>`;
+  document.getElementById('score').textContent=score;
+  document.getElementById('next').classList.add('show');
+  document.getElementById('next').textContent=(pos>=11?'Ver resultado 🏆':'Próxima ▶');
+}
+function nextQ(){pos++;if(pos>=12){finish();return;}render();}
+function finish(){
+  document.getElementById('game').style.display='none';
+  document.getElementById('intro').style.display='none';
+  document.getElementById('pbar').style.width='100%';
+  const r=document.getElementById('result');r.classList.add('show');
+  document.getElementById('rscore').textContent=score;
+  const pct=Math.round(score/12*100);
+  let st=Math.max(1,Math.round(score/2.4));document.getElementById('rstars').textContent='⭐'.repeat(Math.min(5,st));
+  let title,msg;
+  if(pct>=90){title='¡Increíble! 🏆';msg='Você acertou quase tudo! Craque de espanhol!';}
+  else if(pct>=60){title='¡Muy bien! 🎉';msg='Muito bom! Joga mais uma vez para acertar as que faltaram.';}
+  else{title='¡Sigue jugando! 🌈';msg='Dá uma olhada no Resumo e joga de novo. Você vai melhorar!';}
+  document.getElementById('rtitle').textContent=title;document.getElementById('rmsg').textContent=msg+' ('+pct+'%)';
+  r.scrollIntoView({behavior:'smooth'});
+}
+startGame();
+</script>
+</body>
+</html>
